@@ -35,6 +35,51 @@ class CfgVehicles
                     exceptions[] = {"isNotInside", "isNotSitting"};
                     icon = "murshun_cigs\UI\take_cig.paa";
                 };
+				class murshun_cigs_start_pipe
+                {
+                    displayName = "$STR_murshun_cigs_start_pipe";
+                    condition = "[_player] call immersion_cigs_canStartPipe";
+                    statement = "[_player] spawn murshun_cigs_fnc_start_pipe_your";
+                    showDisabled = 0;
+                    exceptions[] = {"isNotInside", "isNotSitting"};
+                    icon = "murshun_cigs\UI\light_pipe.paa";
+                };
+                class murshun_cigs_stop_pipe
+                {
+                    displayName = "$STR_murshun_cigs_stop_pipe";
+                    condition = "[_player] call immersion_cigs_canStopPipe";
+                    statement = "[_player] spawn murshun_cigs_fnc_stop_pipe";
+                    showDisabled = 0;
+                    exceptions[] = {"isNotInside", "isNotSitting"};
+					icon = "murshun_cigs\UI\light_pipe.paa";
+                };
+				class murshun_cigs_pack_pipe
+                {
+                    displayName = "$STR_murshun_cigs_pack_pipe";
+                    condition = "[_player] call immersion_cigs_canPackPipe";
+                    statement = "[_player] spawn murshun_cigs_fnc_pack_pipe";
+                    showDisabled = 0;
+                    exceptions[] = {"isNotInside", "isNotSitting"};
+					icon = "murshun_cigs\UI\light_pipe.paa";
+                };
+				class murshun_cigs_dump_pipe
+                {
+                    displayName = "$STR_murshun_cigs_dump_pipe";
+                    condition = "[_player] call immersion_cigs_canDumpPipe";
+                    statement = "[_player] spawn murshun_cigs_fnc_dump_pipe";
+                    showDisabled = 0;
+                    exceptions[] = {"isNotInside", "isNotSitting"};
+					icon = "murshun_cigs\UI\light_pipe.paa";
+                };
+				class murshun_cigs_take_tobacco_from_tin
+				{
+					displayName = "$STR_murshun_cigs_take_tobacco_from_tin";
+					condition = "[_player] call immersion_cigs_canTakeTobaccoFromTin";
+					statement = "[_player] spawn murshun_cigs_fnc_take_tobacco_from_tin";
+					showDisabled = 0;
+					exceptions[] = {"isNotInside", "isNotSitting"};					
+					icon = "murshun_cigs\UI\take_tobacco.paa";
+				};
             };
         };
     };
@@ -85,6 +130,23 @@ class CfgVehicles
             };
         };
     };
+	
+	class murshun_cigs_tobaccotinItem: WeaponHolder_Single_limited_item_F {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "$STR_murshun_cigs_tobaccotin";
+		discriptionShort = "$STR_murshun_cigs_tobaccotin_descr";
+		
+		author = "$STR_murshun_cigs_author";
+		vehicleClass = "Magazines";
+		
+		class TransportMagazines {
+				class murshun_cigs_tobaccotin {
+						magazine = "murshun_cigs_tobaccotin";
+						count = 1;
+				};
+		};
+	};
 };
 
 class CfgMagazines {
@@ -139,6 +201,23 @@ class CfgMagazines {
         lastRoundsTracer = 0;
         mass = 2;
     };
+	
+	class murshun_cigs_tobaccotin: CA_Magazine {
+		author = "$STR_murshun_cigs_author";
+		scope = 2;
+		
+		displayName = "$STR_murshun_cigs_tobaccotin";
+		discriptionShort = "$STR_murshun_cigs_tobaccotin_descr";
+		model = "\murshun_cigs\cigpack.p3d";
+        picture = "\murshun_cigs\UI\gear_tobaccotin_x_ca";
+
+		ammo = "";
+		count = 10;
+		initSpeed = 0;
+		tracersEvery = 0;
+		lastRoundsTracer = 0;
+		mass = 2;
+	};
 };
 
 class CfgGlasses {
@@ -317,7 +396,101 @@ class CfgFunctions
 
 class CfgWeapons {
 	class NVGoggles;
+	class None;
+	
+	class murshun_cigs_pipeempty_nv: NVGoggles {
+        scope = 2;
+        author = "$STR_murshun_cigs_author";
+        mass = 0.02;
+        displayName = "$STR_murshun_cigs_pipe";
+        descriptionShort = "";
+		//TODO Fix
+        model = "\murshun_cigs\cig3.p3d";
+        picture = "\murshun_cigs\UI\gear_cig3_x_ca";
+        visionMode[] = {"Normal"};
+		thermalMode[] = {0};
+		modelOptics[] = {};
+		opticsPPEffects[] = {};
 
+        immersion_cigs_isCig = false;
+		immersion_cigs_packedState = "murshun_cigs_pipepacked_nv";
+		immersion_cigs_emptyState = "murshun_cigs_pipeempty_nv";
+        class ItemInfo
+        {
+            type = 616;
+            hmdType = 0;
+    		uniformModel = "\murshun_cigs\cig3.p3d";
+	    	modelOff = "\murshun_cigs\cig3.p3d";
+            mass = 0.02;
+        };
+    };
+	
+	class murshun_cigs_pipepacked_nv: murshun_cigs_pipeempty_nv {
+        scope = 1;
+        author = "$STR_murshun_cigs_author";
+        displayName = "Pipe Packed";
+        model = "\murshun_cigs\cig0.p3d";
+        picture = "\murshun_cigs\UI\gear_cig0_x_ca";
+
+                
+        immersion_cigs_isCig = false;
+		immersion_cigs_initStateTime = 0;
+		immersion_cigs_maxTime = 20;	
+		immersion_cigs_nextState = "murshun_cigs_pipelit_nv";
+		immersion_cigs_emptyState = "murshun_cigs_pipeempty_nv";
+		
+        class ItemInfo
+        {
+            type = 616;
+            hmdType = 0;
+    		uniformModel = "\murshun_cigs\cig0.p3d";
+	    	modelOff = "\murshun_cigs\cig0.p3d";
+        };
+    };
+	
+	class murshun_cigs_pipelit_nv: murshun_cigs_pipeempty_nv {
+        scope = 1;
+        author = "$STR_murshun_cigs_author";
+        displayName = "Lit Pipe";
+        model = "\murshun_cigs\cig1.p3d";
+        picture = "\murshun_cigs\UI\gear_cig1_x_ca";
+
+        immersion_cigs_type = "pipe";        
+        immersion_cigs_initStateTime = 5;		
+        immersion_cigs_nextState = "murshun_cigs_pipeashed_nv";
+		
+        immersion_cigs_isCig = false;		
+
+        class ItemInfo
+        {
+            type = 616;
+            hmdType = 0;
+    		uniformModel = "\murshun_cigs\cig1.p3d";
+	    	modelOff = "\murshun_cigs\cig1.p3d";
+        };
+    };
+	
+	class murshun_cigs_pipeashed_nv: murshun_cigs_pipeempty_nv {
+        scope = 1;
+        author = "$STR_murshun_cigs_author";
+        displayName = "Ashed Pipe";
+        model = "\murshun_cigs\cig2.p3d";
+        picture = "\murshun_cigs\UI\gear_cig2_x_ca";
+
+        immersion_cigs_initStateTime = 445;
+        immersion_cigs_nextState = "";
+        immersion_cigs_isCig = false;		
+		immersion_cigs_emptyState = "murshun_cigs_pipeempty_nv";
+		
+        class ItemInfo
+        {
+            type = 616;
+            hmdType = 0;
+    		uniformModel = "\murshun_cigs\cig3.p3d";
+	    	modelOff = "\murshun_cigs\cig3.p3d";
+        };
+    };
+	
     class murshun_cigs_cig0_nv: NVGoggles {
         scope = 2;
         author = "$STR_murshun_cigs_author";
@@ -346,9 +519,7 @@ class CfgWeapons {
             mass = 0.02;
         };
     };
-
-
-
+	
     class murshun_cigs_cig1_nv: murshun_cigs_cig0_nv {
         scope = 1;
         author = "$STR_murshun_cigs_author";
@@ -535,4 +706,14 @@ class CfgWeapons {
 	    	modelOff = "\murshun_cigs\cigars\cigar4.p3d";
         };
     };
+	
+	class murshun_cigs_tobacco: NVGoggles {
+		scope = 1;
+		model = "\murshun_cigs\cigars\cigar4.p3d"; 
+		author = "$STR_murshun_cigs_author";
+		
+		displayName = "$STR_murshun_cigs_tobacco";
+		discriptionShort = "$STR_murshun_cigs_tobacco_descr";		
+        picture = "\murshun_cigs\UI\gear_tobacco_x_ca";
+	};
 };

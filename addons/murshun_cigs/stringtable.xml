@@ -16,6 +16,15 @@
 			<Japanese>タバコに火を点ける</Japanese>
 			<Chinese>點菸</Chinese>
 		</Key>
+		<Key ID="STR_murshun_cigs_start_pipe">
+			<English>Light Pipe</English>
+		</Key>
+		<Key ID="STR_murshun_cigs_pack_pipe">
+			<English>Pack Pipe</English>
+		</Key>
+		<Key ID="STR_murshun_cigs_dump_pipe">
+			<English>Dump Pipe</English>
+		</Key>		
 		<Key ID="STR_murshun_cigs_stop_cig">
 			<English>Put Out a Cig</English>
 			<French>Eteindre Cigarette</French>
@@ -34,6 +43,9 @@
 			<Japanese>箱からタバコを取る</Japanese>
 			<Chinese>抽一根菸出來</Chinese>
 		</Key>
+		<Key ID="STR_murshun_cigs_take_tobacco_from_tin">
+			<English>Take Tobacco from Tin</English>
+		</Key>
 	</Package>
 	<Package name="Items">
 		<Key ID="STR_murshun_cigs_matches">
@@ -50,9 +62,18 @@
 		</Key>
         <Key ID="STR_murshun_cigs_cigpack">
 			<English>Cig Pack</English>
-			<French>Paquet de cigarettes</French>
+			<French>Boîte à tabac</French>
 			<Japanese>タバコ</Japanese>
 			<Chinese>一包菸</Chinese>
+		</Key>
+		<Key ID="STR_murshun_cigs_tobaccotin">
+			<English>Tobacco Tin</English>
+			<French>Paquet de cigarettes</French>
+			<Japanese>煙草缶</Japanese>
+			<Chinese>烟草罐</Chinese>
+		</Key>
+		<Key ID="STR_murshun_cigs_tobacco">
+			<English>Loose Tobacco Pinch</English>
 		</Key>
         <Key ID="STR_murshun_cigs_matches_descr">
 			<English>Contains 10 matches.</English>
@@ -72,6 +93,15 @@
 			<Japanese>20 本の葉巻がある。警告:喫煙はあなたの健康を害します。</Japanese>
 			<Chinese>內含二十根菸。警告：吸菸會導致性功能障礙。</Chinese>
 		</Key>
+		<Key ID="STR_murshun_cigs_tobaccotin_descr">
+			<English>Contains Loose Pipe Tobacco. Warning: Smoking is hazardous to your health.</English>
+			<French>Contient Loose Pipe Tobacco. Attention: Fumer est dangereux pour votre santé.</French>
+			<Japanese>パイプタバコ入り。警告:喫煙はあなたの健康を害します。</Japanese>
+			<Chinese>含烟斗烟草。警告：吸菸會導致性功能障礙。</Chinese>
+		</Key>
+		<Key ID="STR_murshun_cigs_tobacco_descr">
+			<English>A pinch of Loose Pipe Tobacco. Warning: Smoking is hazardous to your health.</English>
+		</Key>
         <Key ID="STR_murshun_cigs_cigarette0">
 			<English>Cigarette</English>
 			<French>Cigarette</French>
@@ -84,6 +114,9 @@
 			<French>Cigarette</French>
 			<Japanese>葉巻</Japanese>
 			<Chinese>香菸</Chinese>
+		</Key>
+		<Key ID="STR_murshun_cigs_pipe">
+			<English>Pipe (NVG Slot)</English>
 		</Key>
 	</Package>
 	<Package name="Notification">
