@@ -18,12 +18,21 @@
 		</Key>
 		<Key ID="STR_murshun_cigs_start_pipe">
 			<English>Light Pipe</English>
+			<French>Tabac léger Pipe</French>
+			<Japanese>ライトパイプ</Japanese>
+			<Chinese>光管</Chinese>
 		</Key>
 		<Key ID="STR_murshun_cigs_pack_pipe">
 			<English>Pack Pipe</English>
+			<French>Préparation du tuyau</French>
+			<Japanese>パイプの準備</Japanese>
+			<Chinese>准备管道</Chinese>
 		</Key>
 		<Key ID="STR_murshun_cigs_dump_pipe">
 			<English>Dump Pipe</English>
+			<French>Vider la pipe</French>
+			<Japanese>パイプを空にする</Japanese>
+			<Chinese>清空管道</Chinese>			
 		</Key>		
 		<Key ID="STR_murshun_cigs_stop_cig">
 			<English>Put Out a Cig</English>
@@ -45,6 +54,9 @@
 		</Key>
 		<Key ID="STR_murshun_cigs_take_tobacco_from_tin">
 			<English>Take Tobacco from Tin</English>
+			<French>Retirer le tabac du récipient</French>
+			<Japanese>タバコを容器から取り出す</Japanese>
+			<Chinese>从容器中取出烟草</Chinese>
 		</Key>
 	</Package>
 	<Package name="Items">
@@ -74,6 +86,9 @@
 		</Key>
 		<Key ID="STR_murshun_cigs_tobacco">
 			<English>Loose Tobacco Pinch</English>
+			<French>Tabac en vrac Pinch</French>
+			<Japanese>ルース・タバコ・ピンチ</Japanese>
+			<Chinese>散装烟草。</Chinese>
 		</Key>
         <Key ID="STR_murshun_cigs_matches_descr">
 			<English>Contains 10 matches.</English>
@@ -116,7 +131,16 @@
 			<Chinese>香菸</Chinese>
 		</Key>
 		<Key ID="STR_murshun_cigs_pipe">
-			<English>Pipe (NVG Slot)</English>
+			<English>Pipe</English>
+			<French>Pipe à fumer</French>
+			<Japanese>スモーキングパイプ</Japanese>
+			<Chinese>烟斗</Chinese>
+		</Key>
+		<Key ID="STR_murshun_cigs_pipe_nv">
+			<English>Pipe (NVG Slot)</English>						
+			<French>Pipe à fumer (NVG)</French>
+			<Japanese>スモーキングパイプ (NVG)</Japanese>
+			<Chinese>烟斗 (NVG)</Chinese>
 		</Key>
 	</Package>
 	<Package name="Notification">
