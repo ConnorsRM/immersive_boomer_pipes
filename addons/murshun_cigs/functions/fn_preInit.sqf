@@ -519,7 +519,7 @@ murshun_cigs_fnc_take_tobacco_from_tin = {
 	[_player, "murshun_cigs_tobaccotin"] call murshun_cigs_removeItemFromMag;
 	
 	//TODO replace with a sound that doesn't suck ass.
-	[_player, "murshun_cigs_unwrap"] call murshun_cigs_playSound;
+	[_player, "murshun_cigs_tobaccotin"] call murshun_cigs_playSound;
 	_player addItem "murshun_cigs_tobacco";
 };
 
