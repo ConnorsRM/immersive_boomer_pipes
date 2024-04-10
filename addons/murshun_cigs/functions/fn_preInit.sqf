@@ -399,8 +399,7 @@ murshun_cigs_fnc_start_pipe = {
 		if (_abortLoop) exitWith {};
 	};
 	
-	//Smoking time is over
-	[_unit, "immersion_cigs_cig_out", 1] spawn murshun_cigs_fnc_anim;
+	//Smoking time is over	
 	_unit setVariable ["murshun_cigs_cigLitUp", false, true];
 	
 	//if we reached pipe lifetime, replace with ashed
@@ -444,7 +443,7 @@ murshun_cigs_fnc_pack_pipe = {
 	//drill into packedstate
 	private _packedState = "";
 	_packedState = getText (_pipeClass >> "immersion_cigs_packedState");	
-	
+	hint (_packedState);
 	if(_packedState != "") then {
 		//everything as it should be
 		//remove tobacco, change pipe to packed	
@@ -541,10 +540,10 @@ MURSHUN_CIGS_PIPE_GOGGLES = 1;
 MURSHUN_CIGS_PIPE_HMD = 2;
 
 murshun_cigs_cigsArray = ["EWK_Cigar1", "EWK_Cigar2", "EWK_Cig1", "EWK_Cig2", "EWK_Cig3", "EWK_Cig4", "EWK_Glasses_Cig1", "EWK_Glasses_Cig2", "EWK_Glasses_Cig3", "EWK_Glasses_Cig4", "EWK_Glasses_Shemag_GRE_Cig6", "EWK_Glasses_Shemag_NB_Cig6", "EWK_Glasses_Shemag_tan_Cig6", "EWK_Cig5", "EWK_Glasses_Cig5", "EWK_Cig6", "EWK_Glasses_Cig6", "EWK_Shemag_GRE_Cig6", "EWK_Shemag_NB_Cig6", "EWK_Shemag_tan_Cig6"] + (("getNumber (_x >> 'immersion_cigs_isCig') == 1" configClasses (configFile >> "CfgGlasses")) apply {configName _x}) + (("getNumber (_x >> 'immersion_cigs_isCig') == 1" configClasses (configFile >> "CfgWeapons")) apply {configName _x});
-murshun_cigs_pipePackedArr = ["murshun_cigs_pipepacked_nv"];
-murshun_cigs_pipeLitArr = ["murshun_cigs_pipelit_nv"];
-murshun_cigs_pipeAshedArr = ["murshun_cigs_pipeashed_nv"];
-murshun_cigs_pipeEmptyArr = ["murshun_cigs_pipeempty_nv"];
+murshun_cigs_pipePackedArr = ["murshun_cigs_pipepacked_nv", "murshun_cigs_pipepacked"];
+murshun_cigs_pipeLitArr = ["murshun_cigs_pipelit_nv", "murshun_cigs_pipelit"];
+murshun_cigs_pipeAshedArr = ["murshun_cigs_pipeashed_nv", "murshun_cigs_pipeashed"];
+murshun_cigs_pipeEmptyArr = ["murshun_cigs_pipeempty_nv", "murshun_cigs_pipeempty"];
 
 
 
