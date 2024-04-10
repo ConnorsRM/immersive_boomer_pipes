@@ -358,7 +358,7 @@ class CfgGlasses {
         displayName = "$STR_murshun_cigs_pipe";
 		descriptionShort = "An burning pipe with lit tobacco";
         model = "\murshun_cigs\cig3.p3d";
-        picture = "\murshun_cigs\UI\gear_cig3_x_ca";
+        picture = "\murshun_cigs\UI\gear_pipe_empty_x_ca";
         identityTypes[] = {};
 
         immersion_cigs_type = "pipe";
@@ -375,7 +375,7 @@ class CfgGlasses {
         displayName = "Pipe Packed";
 		descriptionShort = "An packed pipe for smoking tobacco";
         model = "\murshun_cigs\cig0.p3d";
-        picture = "\murshun_cigs\UI\gear_cig0_x_ca";
+        picture = "\murshun_cigs\UI\gear_pipe_packed_x_ca";
 
                 
         immersion_cigs_isCig = false;
@@ -391,7 +391,7 @@ class CfgGlasses {
         displayName = "Lit Pipe";
 		descriptionShort = "An burning pipe with lit tobacco";
         model = "\murshun_cigs\cig1.p3d";
-        picture = "\murshun_cigs\UI\gear_cig1_x_ca";
+        picture = "\murshun_cigs\UI\gear_pipe_lit_x_ca";
 
         immersion_cigs_type = "pipe";        
         immersion_cigs_initStateTime = 5;		
@@ -406,7 +406,7 @@ class CfgGlasses {
         displayName = "Ashed Pipe";
 		descriptionShort = "A pipe full of ash.";
         model = "\murshun_cigs\cig2.p3d";
-        picture = "\murshun_cigs\UI\gear_cig2_x_ca";
+        picture = "\murshun_cigs\UI\gear_pipe_ashed_x_ca";
 
         immersion_cigs_initStateTime = 445;
         immersion_cigs_nextState = "";
@@ -434,6 +434,11 @@ class CfgSounds
     class murshun_cigs_lighter_01
     {
         sound[] = {"\murshun_cigs\murshun_cigs_lighter_01.ogg", 2, 1, 15};
+        titles[] = {};
+    };	
+	class murshun_cigs_tobaccotin
+    {
+        sound[] = {"\murshun_cigs\murshun_cigs_tobaccotin.ogg", 2, 1, 15};
         titles[] = {};
     };
 };
@@ -471,7 +476,7 @@ class CfgWeapons {
         descriptionShort = "An empty pipe for smoking tobacco";
 		//TODO Fix
         model = "\murshun_cigs\cig3.p3d";
-        picture = "\murshun_cigs\UI\gear_cig3_x_ca";
+        picture = "\murshun_cigs\UI\gear_pipe_empty_x_ca";
         visionMode[] = {"Normal"};
 		thermalMode[] = {0};
 		modelOptics[] = {};
@@ -496,7 +501,7 @@ class CfgWeapons {
         displayName = "Pipe Packed";
 		descriptionShort = "An packed pipe for smoking tobacco";
         model = "\murshun_cigs\cig0.p3d";
-        picture = "\murshun_cigs\UI\gear_cig0_x_ca";
+        picture = "\murshun_cigs\UI\gear_pipe_packed_x_ca";
 
                 
         immersion_cigs_isCig = false;
@@ -520,7 +525,7 @@ class CfgWeapons {
         displayName = "Lit Pipe";
 		descriptionShort = "An burning pipe with lit tobacco";
         model = "\murshun_cigs\cig1.p3d";
-        picture = "\murshun_cigs\UI\gear_cig1_x_ca";
+        picture = "\murshun_cigs\UI\gear_pipe_lit_x_ca";
 
         immersion_cigs_type = "pipe";        
         immersion_cigs_initStateTime = 5;		
@@ -543,7 +548,7 @@ class CfgWeapons {
         displayName = "Ashed Pipe";
 		descriptionShort = "A pipe full of ash.";
         model = "\murshun_cigs\cig2.p3d";
-        picture = "\murshun_cigs\UI\gear_cig2_x_ca";
+        picture = "\murshun_cigs\UI\gear_pipe_ashed_x_ca";
 
         immersion_cigs_initStateTime = 445;
         immersion_cigs_nextState = "";
