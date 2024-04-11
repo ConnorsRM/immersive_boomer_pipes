@@ -33,7 +33,13 @@
 			<French>Vider la pipe</French>
 			<Japanese>パイプを空にする</Japanese>
 			<Chinese>清空管道</Chinese>			
-		</Key>		
+		</Key>
+		<Key ID="STR_murshun_cigs_stop_stop">
+			<English>Stop Pipe</English>
+			<French>Arrêter de fumer la pipe</French>
+			<Japanese>禁煙パイプく</Japanese>
+			<Chinese>停止吸烟斗</Chinese>
+		</Key>
 		<Key ID="STR_murshun_cigs_stop_cig">
 			<English>Put Out a Cig</English>
 			<French>Eteindre Cigarette</French>

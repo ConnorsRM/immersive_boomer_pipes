@@ -17,6 +17,18 @@ private _addVanillaActions = {
             params ["_target", "_caller"];
             [cursorObject, _caller] spawn murshun_cigs_fnc_start_cig_their
         }, nil, 0, false, true, "", "if !(cursorObject isKindOf 'Man') exitWith {false}; ((goggles cursorObject) in murshun_cigs_cigsArray) && !(cursorObject getVariable ['murshun_cigs_cigLitUp', false]) && (alive cursorObject)", 5, false];
+		player addAction [localize "STR_murshun_cigs_start_pipe", {
+            params ["_target", "_caller"];
+            [_caller] spawn murshun_cigs_fnc_start_pipe_your
+        }, nil, 0, false, true, "", "if (_target != player) exitWith {false}; [_this] call immersion_cigs_canStartPipe", 5, false];
+		player addAction [localize "STR_murshun_cigs_stop_stop", {
+            params ["_target", "_caller"];
+            [_caller] spawn murshun_cigs_fnc_stop_pipe
+        }, nil, 0, false, true, "", "if (_target != player) exitWith {false}; [_this] call immersion_cigs_canStopPipe", 5, false];
+		player addAction [localize "STR_murshun_cigs_take_tobacco_from_tin", {
+            params ["_target", "_caller"];
+            [_caller] spawn murshun_cigs_fnc_take_tobacco_from_tin
+        }, nil, 0, false, true, "", "if (_target != player) exitWith {false}; 'murshun_cigs_tobaccotin' in (magazineCargo uniformContainer player) || 'murshun_cigs_tobaccotin' in (magazineCargo vestContainer player)", 5, false];
     };
 
 if !(isClass (configFile >> "CfgPatches" >> "ace_interact_menu")) then {
@@ -41,11 +53,43 @@ player addEventHandler ["Respawn", {
 player addEventHandler ["InventoryClosed", {
     params ["_unit", "_container"];
 
+	//fast path, most frequent case. If not EQ in both slots, no chance for conflict.
+	if((goggles _unit == "") || ( hmd _unit == "") ) exitWith {};
+
+	//gross, wish there was just else if statements.
     if (goggles _unit in murshun_cigs_cigsArray && hmd _unit in murshun_cigs_cigsArray) then {
         _unit addItem (hmd _unit);
 
-        _unit unlinkItem (hmd _unit);
-    };
+        _unit unlinkItem (hmd _unit);		
+    } else {
+		if (goggles _unit in murshun_cigs_pipeEmptyArr && hmd _unit in murshun_cigs_pipeEmptyArr) then {
+			_unit addItem (hmd _unit);
+
+			_unit unlinkItem (hmd _unit);
+		}
+		else {
+			if (goggles _unit in murshun_cigs_pipepacked_nv && hmd _unit in murshun_cigs_pipepacked_nv) then {
+				_unit addItem (hmd _unit);
+
+				_unit unlinkItem (hmd _unit);
+			}
+			else {
+				if (goggles _unit in murshun_cigs_pipeAshedArr && hmd _unit in murshun_cigs_pipeAshedArr) then {
+					_unit addItem (hmd _unit);
+
+					_unit unlinkItem (hmd _unit);
+				}
+				else {
+					if (goggles _unit in murshun_cigs_pipeLitArr && hmd _unit in murshun_cigs_pipeLitArr) then {
+						_unit addItem (hmd _unit);
+
+						_unit unlinkItem (hmd _unit);
+					};
+				};
+			};
+		};
+	};	
+	
 }];
 
 if (!isMultiplayer && !is3DENPreview && immersion_cigs_giveItemsInSP) then {
