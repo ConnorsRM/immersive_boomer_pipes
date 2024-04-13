@@ -360,8 +360,7 @@ murshun_cigs_fnc_start_pipe = {
         };
 		
 		private _time = (5.5 + random 2);
-		_stateTime = _stateTime + _time;
-		hint (str _stateTime);
+		_stateTime = _stateTime + _time;		
 		
 		//add fatigue, not sure why- but keep parity with cigs. _shrug_
 		[_unit, _smokeType] remoteExec ["murshun_cigs_fnc_smoke"];
@@ -443,7 +442,7 @@ murshun_cigs_fnc_pack_pipe = {
 	//drill into packedstate
 	private _packedState = "";
 	_packedState = getText (_pipeClass >> "immersion_cigs_packedState");	
-	hint (_packedState);
+	
 	if(_packedState != "") then {
 		//everything as it should be
 		//remove tobacco, change pipe to packed	
